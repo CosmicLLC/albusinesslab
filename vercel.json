@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm --filter @workspace/ai-business-lab build && rm -rf public && mv artifacts/ai-business-lab/dist/public public",
+  "buildCommand": "pnpm --filter @workspace/ai-business-lab build",
   "outputDirectory": "public",
   "installCommand": "pnpm install --frozen-lockfile",
   "rewrites": [

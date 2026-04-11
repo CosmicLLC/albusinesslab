@@ -46,7 +46,9 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    // Write directly to <repo-root>/public so Vercel's default output
+    // location works without any post-build file shuffling.
+    outDir: path.resolve(import.meta.dirname, "..", "..", "public"),
     emptyOutDir: true,
     rollupOptions: {
       output: {
