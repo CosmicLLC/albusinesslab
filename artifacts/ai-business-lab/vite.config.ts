@@ -48,6 +48,23 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes("node_modules")) return;
+          if (id.includes("react-dom")) return "react-dom";
+          if (id.match(/[\\/]react[\\/]/)) return "react";
+          if (id.includes("framer-motion")) return "motion";
+          if (id.includes("@radix-ui")) return "radix";
+          if (id.includes("@tanstack")) return "query";
+          if (id.includes("lucide-react") || id.includes("react-icons")) return "icons";
+          if (id.includes("react-hook-form") || id.includes("@hookform") || id.includes("zod")) return "forms";
+          if (id.includes("recharts")) return "charts";
+          if (id.includes("embla-carousel")) return "carousel";
+          if (id.includes("date-fns") || id.includes("react-day-picker")) return "dates";
+        },
+      },
+    },
   },
   server: {
     port,
