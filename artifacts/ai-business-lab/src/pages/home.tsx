@@ -39,14 +39,16 @@ export default function Home() {
     <div className="flex flex-col w-full">
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-[#070E1C]">
+      {/* -mt-20 pulls the dark hero up under the fixed navbar to eliminate
+          the white gap that Layout's main pt-20 would otherwise create. */}
+      <section className="relative overflow-hidden bg-[#070E1C] -mt-20">
         {/* Deep blue radial glow — mirrors genaipi's center glow */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full bg-[#1E3A8A]/30 blur-[120px]" />
           <div className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/3 w-[600px] h-[400px] rounded-full bg-[#3B82F6]/10 blur-[100px]" />
         </div>
 
-        <Container className="relative z-10 py-28 md:py-40">
+        <Container className="relative z-10 pt-28 pb-12 md:pt-36 md:pb-20">
           <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
 
             {/* Pill badge */}
@@ -54,7 +56,7 @@ export default function Home() {
               initial={{ opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 border border-[#3B82F6]/40 bg-[#3B82F6]/10 text-white/90 text-sm font-medium px-5 py-2.5 rounded-full mb-10"
+              className="inline-flex items-center gap-2.5 border border-[#3B82F6]/40 bg-[#3B82F6]/10 text-white/90 text-sm font-medium px-5 py-2.5 rounded-full mb-6"
             >
               <img src="/logo.png" alt="" className="h-5 w-5 object-contain brightness-0 invert opacity-90" />
               AI training and implementation for medium and large companies
@@ -65,7 +67,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight mb-8"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight mb-6"
             >
               We get your employees{" "}
               <span className="text-[#3B82F6]">actually using AI</span>.
@@ -76,7 +78,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-white/70 text-lg leading-relaxed max-w-2xl mb-14"
+              className="text-white/70 text-lg leading-relaxed max-w-2xl mb-10"
             >
               We train your team on AI and build the tools they use every day — turning "we should be using AI" into a company where everyone actually does.
             </motion.p>
@@ -112,7 +114,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-white/50 text-sm mt-8"
+              className="text-white/50 text-sm mt-6"
             >
               Founded by <span className="text-white/80 font-medium">James Greulich</span> — operator, founder, four years deep on AI.
             </motion.p>
