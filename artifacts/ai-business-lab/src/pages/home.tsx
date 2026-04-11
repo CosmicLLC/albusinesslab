@@ -69,8 +69,8 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight mb-6"
             >
-              We get your employees{" "}
-              <span className="text-[#3B82F6]">actually using AI</span>.
+              92% of companies are unprepared for AI.{" "}
+              <span className="text-[#3B82F6]">Don't be one of them</span>.
             </motion.h1>
 
             {/* Subtext */}
@@ -80,7 +80,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-white/70 text-lg leading-relaxed max-w-2xl mb-10"
             >
-              We train your team on AI and build the tools they use every day — turning "we should be using AI" into a company where everyone actually does.
+              Our AI Transformation System delivers measurable results in just 2 days — turning your team's "we should use AI" into actual productivity gains of 68% or more.
             </motion.p>
 
             {/* CTA buttons */}
