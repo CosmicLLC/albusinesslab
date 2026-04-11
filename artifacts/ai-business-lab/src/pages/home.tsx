@@ -116,7 +116,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="text-white/50 text-sm mt-6"
             >
-              Founded by <span className="text-white/80 font-medium">James Greulich</span> — operator, founder, four years deep on AI.
+              Founded by <span className="text-white/80 font-medium">James Greulich</span> — operator, founder.
             </motion.p>
 
           </div>
