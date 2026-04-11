@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "AI Business Lab"
+version = "1.0.0"
+id = "artifacts/ai-business-lab"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18640
+
+[services.development]
+run = "pnpm --filter @workspace/ai-business-lab run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ai-business-lab", "run", "build" ]
+publicDir = "artifacts/ai-business-lab/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18640"
+BASE_PATH = "/"

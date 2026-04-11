@@ -1,0 +1,76 @@
+Update the design system of this project to use a clean blue and white theme inspired by https://genaipi.org/.
+
+GOAL:
+Make the website feel like a professional AI consulting firm / institute with a minimal, high-trust, enterprise aesthetic.
+
+-----------------------------------
+COLORS
+-----------------------------------
+Use the following color system:
+
+- Primary Blue: #1E3A8A (buttons, links, accents)
+- Accent Blue: #3B82F6 (hover states)
+- Background: #FFFFFF (main)
+- Section Background: #F9FAFB (alternate sections)
+- Primary Text: #111827
+- Secondary Text: #6B7280
+- Borders: #E5E7EB
+
+-----------------------------------
+DESIGN STYLE
+-----------------------------------
+- Clean, minimal, and structured
+- Section-based layout (stacked vertical sections)
+- Max-width centered content (max-w-6xl or max-w-7xl)
+- Generous spacing (padding and margins)
+- Strong typography hierarchy
+
+-----------------------------------
+COMPONENT STYLING
+-----------------------------------
+
+Buttons:
+- Primary: blue background, white text, rounded-xl
+- Secondary: outlined (blue border, white background)
+- Subtle hover states (slightly darker blue)
+
+Cards:
+- White background
+- Light border (#E5E7EB)
+- Rounded-xl
+- No heavy shadows
+- Comfortable padding
+
+Sections:
+- Alternate between white and light gray backgrounds
+- Clear separation between sections
+
+Typography:
+- Large bold headlines
+- Medium subheadings
+- Gray body text
+- Small uppercase labels (optional)
+
+-----------------------------------
+LAYOUT PATTERN
+-----------------------------------
+Each section should follow this structure:
+
+- Optional label
+- Large headline
+- Short supporting paragraph
+- Content (grid, cards, or text)
+
+-----------------------------------
+IMPORTANT RULES
+-----------------------------------
+- Keep design minimal and uncluttered
+- No dark mode
+- No flashy gradients or neon effects
+- No excessive animations
+- Prioritize readability and structure
+
+-----------------------------------
+OUTCOME
+-----------------------------------
+The website should look like a credible AI consulting firm or institute, similar in structure and visual clarity to genaipi.org, without copying content.
