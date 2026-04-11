@@ -46,9 +46,10 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    // Write directly to <repo-root>/public so Vercel's default output
-    // location works without any post-build file shuffling.
-    outDir: path.resolve(import.meta.dirname, "..", "..", "public"),
+    // Output to package-local dist/ so it matches the Vite preset's
+    // default and the outputDirectory configured in vercel.json (with
+    // Vercel Root Directory set to artifacts/ai-business-lab).
+    outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
     rollupOptions: {
       output: {
