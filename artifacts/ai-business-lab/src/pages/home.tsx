@@ -57,7 +57,7 @@ export default function Home() {
               className="inline-flex items-center gap-2.5 border border-[#3B82F6]/40 bg-[#3B82F6]/10 text-white/90 text-sm font-medium px-5 py-2.5 rounded-full mb-10"
             >
               <img src="/logo.png" alt="" className="h-5 w-5 object-contain brightness-0 invert opacity-90" />
-              We make AI work for you.
+              AI training and implementation for medium and large companies
             </motion.div>
 
             {/* Headline */}
@@ -67,10 +67,8 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight mb-8"
             >
-              We transform your company into{" "}
-              an{" "}
-              <span className="text-[#3B82F6]">AI-powered machine</span>{" "}
-              that supports the humans you serve
+              We get your employees{" "}
+              <span className="text-[#3B82F6]">actually using AI</span>.
             </motion.h1>
 
             {/* Subtext */}
@@ -78,17 +76,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-white/70 text-lg leading-relaxed max-w-2xl mb-4"
+              className="text-white/70 text-lg leading-relaxed max-w-2xl mb-14"
             >
-              Executives don't have time to drive AI transformation — so we embed a dedicated fCAIO (fractional Chief AI Officer) team that does it for you.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.28 }}
-              className="text-white/50 text-base leading-relaxed max-w-2xl mb-14"
-            >
-              A structured monthly operating system, 90-day roadmap, hands-on team training, and ongoing AI infrastructure that makes your company AI-native — and keeps you there.
+              We train your team on AI and build the tools they use every day — turning "we should be using AI" into a company where everyone actually does.
             </motion.p>
 
             {/* CTA buttons */}
@@ -113,23 +103,42 @@ export default function Home() {
                 size="lg"
                 className="h-12 px-8 text-base font-medium bg-transparent border border-white/25 text-white hover:bg-white/10 hover:border-white/40"
               >
-                <Link href="/system">See How It Works</Link>
+                <Link href="/system">See What We Do</Link>
               </Button>
             </motion.div>
+
+            {/* Founder credit */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="text-white/50 text-sm mt-8"
+            >
+              Founded by <span className="text-white/80 font-medium">James Greulich</span> — operator, founder, four years deep on AI.
+            </motion.p>
 
           </div>
         </Container>
       </section>
 
-      {/* ── WEF Quote ── */}
-      <section className="border-b border-border bg-muted/40 py-8">
+      {/* ── Founder Intro ── */}
+      <section className="border-b border-border bg-white py-16 md:py-20">
         <Container>
-          <p className="text-center text-muted-foreground text-sm md:text-base italic max-w-2xl mx-auto">
-            "AI skills are no longer optional — they're essential for the modern workplace."
-            <span className="block not-italic font-semibold text-foreground mt-1 text-xs md:text-sm">
-              — World Economic Forum, Future of Jobs Report
-            </span>
-          </p>
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10">
+            <img
+              src="/james.png"
+              alt="James Greulich, founder of AI Business Lab"
+              className="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover flex-shrink-0 border border-border shadow-md"
+            />
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
+                Founder
+              </p>
+              <p className="text-lg md:text-xl text-foreground leading-relaxed">
+                Hi, I'm <span className="font-semibold">James Greulich</span>. I spent years in operations — opening and scaling my own businesses — and the past four years getting deep on AI. I started AI Business Lab because most companies are paying for AI tools their employees never actually use. We fix that.
+              </p>
+            </div>
+          </div>
         </Container>
       </section>
 
