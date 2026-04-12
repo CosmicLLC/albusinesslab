@@ -80,7 +80,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-white/70 text-lg leading-relaxed max-w-2xl mb-10"
             >
-              Our AI Transformation System delivers measurable results in just 2 days — turning your team's "we should use AI" into actual productivity gains of 68% or more.
+              Deploy intelligent agents that handle your most repetitive work — freeing your team to focus on strategy, growth, and decisions that matter. See results within 48 hours.
             </motion.p>
 
             {/* CTA buttons */}
