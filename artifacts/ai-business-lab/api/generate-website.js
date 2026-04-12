@@ -43,7 +43,7 @@ Footer: Minimalist links and copyright.
 
 Constraint: The code must be fully responsive (mobile-friendly) using standard Tailwind responsive prefixes (md:, lg:).`;
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -74,7 +74,7 @@ export default async function handler(req: any, res: any) {
     html = html.replace(/^```html?\n?/i, "").replace(/\n?```$/i, "").trim();
 
     return res.status(200).json({ html });
-  } catch (err: any) {
+  } catch (err) {
     console.error("Gemini error:", err);
     return res.status(500).json({ error: err.message || "Generation failed" });
   }
