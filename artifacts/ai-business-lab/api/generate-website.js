@@ -157,7 +157,53 @@ Every generated page MUST include ALL of these sections in this order:
 - The page must look premium on both desktop (1440px) and mobile (375px)
 - Use CSS @keyframes for at least one entrance animation
 - Add smooth scroll behavior to the html element
-- All interactive elements must have visible focus states for accessibility`;
+- All interactive elements must have visible focus states for accessibility
+
+════════════════════════════════════════
+  DRIBBBLE-INSPIRED PREMIUM POLISH
+════════════════════════════════════════
+
+Study and replicate these techniques seen in top Dribbble shots:
+
+GLASSMORPHISM (2026 refined, not 2021 heavy-blur)
+- Use backdrop-blur-xl (not just md) with very low opacity backgrounds: bg-white/5 or bg-white/8
+- Add subtle noise texture overlays on glass elements using a CSS pseudo-element with a
+  repeating SVG noise pattern at 2-5% opacity
+- Gradient borders: use border border-white/10 combined with a gradient border-image for
+  premium edge definition
+- Pair glass cards with soft, colored drop shadows (e.g., shadow-blue-500/10) not gray shadows
+- Glass elements should feel like they float — add ring-1 ring-white/5 for extra depth
+
+HERO SECTION (Deconstructed / Asymmetric style)
+- Break the centered-text-over-image pattern when appropriate
+- Use split layouts: large headline on left (60%), supporting visual on right (40%)
+- Layer elements: text that overlaps an image edge, floating stat badges, gradient mesh
+  backgrounds behind content
+- Gradient mesh backgrounds: use 2-3 large radial gradients with blur-3xl, positioned
+  at different corners, creating a vibrant but subtle aurora effect
+- Add a subtle animated gradient orb that slowly moves (CSS animation, 15-20s duration)
+
+CARD DESIGN (Dribbble-level polish)
+- Cards should have internal hierarchy: icon/image at top, then eyebrow label, then
+  title, then description — never just a title and text
+- Use subtle inner gradients: bg-gradient-to-br from-white/5 to-transparent
+- Add a top highlight border: border-t border-white/10 for a lighting effect
+- On hover: cards should glow — add a colored box-shadow matching the accent color at 20% opacity
+- Feature cards can include small inline data visualizations or mini charts using pure CSS
+
+VISUAL RICHNESS TECHNIQUES
+- Use gradient text on hero headlines: bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent
+- Add decorative grid/dot patterns behind sections using CSS background-image with subtle opacity
+- Use pill-shaped badges for labels and tags: rounded-full px-4 py-1 bg-accent/10 text-accent
+- Testimonial cards: slightly rotated (-1deg to 1deg) with different elevations for a stacked effect
+- Pricing cards: the featured tier should be visually elevated (scale-105) with a glowing border
+- Stats/metrics: use large mono-weight numbers (tabular-nums) with animated count-up on scroll
+
+SPACING & COMPOSITION (Dribbble standard)
+- Use max-w-7xl for main container, not full-width — content should never touch screen edges
+- Section transitions: use subtle gradient dividers or soft curves (SVG wave shapes) between sections
+- Group related elements tightly, separate unrelated groups with generous whitespace (the proximity principle)
+- Align to an invisible 12-column grid — even in bento layouts, cells should snap to grid lines`;
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
