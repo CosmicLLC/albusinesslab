@@ -51,17 +51,6 @@ export default function Home() {
         <Container className="relative z-10 pt-28 pb-12 md:pt-36 md:pb-20">
           <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
 
-            {/* Pill badge */}
-            <motion.div
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 border border-[#3B82F6]/40 bg-[#3B82F6]/10 text-white/90 text-sm font-medium px-5 py-2.5 rounded-full mb-6"
-            >
-              <img src="/logo.png" alt="" className="h-5 w-5 object-contain brightness-0 invert opacity-90" />
-              AI training and implementation for medium and large companies
-            </motion.div>
-
             {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
