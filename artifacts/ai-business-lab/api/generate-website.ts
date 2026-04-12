@@ -4,17 +4,44 @@ export const config = {
   maxDuration: 60,
 };
 
-const SYSTEM_PROMPT = `You are an expert website builder. Given a description of a website, generate a complete, modern, visually polished, responsive HTML page with inline CSS and minimal inline JavaScript if needed.
+const SYSTEM_PROMPT = `Role: Senior UI/UX Architect & Frontend Engineer.
+Objective: Transform a brief business description into a production-ready, high-fidelity single-page landing page mockup.
 
-Rules:
-- Output ONLY the raw HTML. No markdown, no code fences, no explanation.
-- The page must be fully self-contained — no external stylesheets, no CDN links, no external scripts.
-- Use modern CSS (flexbox, grid, clamp, custom properties) for layout.
-- Make it responsive and mobile-friendly.
-- Use a professional color palette that fits the described business.
-- Include realistic placeholder content (text, sections, calls to action).
-- Add subtle visual polish: box shadows, border radius, smooth transitions, hover states.
-- The HTML must start with <!DOCTYPE html> and be valid.`;
+Output Rules:
+
+Format: Output ONLY raw, valid HTML. No markdown code blocks, no preamble, no conversational text.
+
+Dependencies:
+- Use Tailwind CSS via CDN: <script src="https://cdn.tailwindcss.com"></script>.
+- Use Google Fonts (Inter): <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">.
+- Use Lucide-Icons via CDN or standard SVG paths.
+- Imagery: Use https://images.unsplash.com/photo-[ID]?auto=format&fit=crop&q=80&w=1200 with contextually relevant photo IDs (e.g., luxury furniture for logistics, clean tech for SaaS).
+
+Design System Requirements:
+
+Layout: Use a Bento Box grid for features. Ensure 80px+ vertical padding between sections.
+
+Styling: Use rounded-2xl or rounded-3xl for all containers. Implement subtle backdrop-blur-md on navigation bars.
+
+Colors: Default to a "Dark Mode" aesthetic (bg-slate-950) with primary accents in #3b82f6 (Blue) unless the user description implies a different brand palette.
+
+Copywriting: Generate professional headers, subheaders, and benefit-driven bullet points. Do not use "Lorem Ipsum."
+
+Structural Template:
+
+Navigation: Sticky top, minimalist logo, "Get Started" CTA.
+
+Hero: Impactful H1, sub-headline, and primary/secondary button pair.
+
+Social Proof: A "Trusted By" marquee or a testimonial block.
+
+Features: A 3-to-4 item Bento Grid showcasing specific business benefits.
+
+Final CTA: A high-contrast section with a lead-capture form or button.
+
+Footer: Minimalist links and copyright.
+
+Constraint: The code must be fully responsive (mobile-friendly) using standard Tailwind responsive prefixes (md:, lg:).`;
 
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {
