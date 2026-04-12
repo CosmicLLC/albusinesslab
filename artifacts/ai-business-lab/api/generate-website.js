@@ -90,7 +90,33 @@ export default async function handler(req, res) {
 
     const result = await model.generateContent([
       { text: SYSTEM_PROMPT },
-      { text: `Build a website based on this description:\n\n${description}` },
+      { text: `### STRATEGIC CONTEXT ENHANCEMENT
+The following business description is provided by a user. Your goal is to amplify this minimal input into a high-converting, professional design by applying these "Expert Inference" rules:
+
+1. INDUSTRY CLASSIFICATION:
+   - Identify the industry (e.g., Logistics, SaaS, Retail, Service).
+   - Apply an appropriate color palette:
+     - Logistics/Industrial: Slate/Amber/Navy.
+     - Tech/AI: Black/Electric Blue/Violet.
+     - Health/Wellness: White/Sage/Stone.
+
+2. CONTENT EXPANSION:
+   - If user input < 10 words, generate a "Hero H1" that focuses on the VALUE, not the product.
+   - Invent 3 specific "Key Benefits" (e.g., "Global Tracking," "White-Glove Delivery," "Sustainable Sourcing").
+   - Create a "Process" section explaining how the business works in 3 steps.
+
+3. THE "STITCH" DESIGN DNA:
+   - Layout: Heavy use of "Bento Grids" (asymmetrical rounded cards).
+   - Components: Glassmorphism headers, high-contrast buttons with ring offsets, and oversized typography (text-5xl to text-7xl).
+   - Assets: All <img> tags must use professional Unsplash IDs. Do not use generic placeholders.
+
+4. TECHNICAL OUTPUT:
+   - Return ONLY raw HTML/Tailwind code.
+   - Ensure the <head> includes Tailwind Play CDN and 'Inter' font.
+   - All code must be responsive (mobile-first).
+
+### USER INPUT TO TRANSFORM:
+"${description}"` },
     ]);
 
     const response = result.response;
