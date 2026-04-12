@@ -67,7 +67,7 @@ export default function Home() {
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight mb-6"
             >
               Add an Autonomous AI{" "}
-              <span className="text-[#3B82F6]">Workforce to Your Team in 48 Hours</span>.
+              <span className="text-[#3B82F6]">Workforce to Your Team in 48 Hours</span>
             </motion.h1>
 
             {/* Subtext */}
