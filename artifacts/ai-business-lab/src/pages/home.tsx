@@ -90,7 +90,7 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="h-12 px-8 text-base font-semibold bg-[#3B82F6] hover:bg-[#2563EB] text-white border-0"
+                className="h-[54px] px-9 text-[17px] font-semibold bg-[#3B82F6] hover:bg-[#2563EB] text-white border-0"
               >
                 <Link href="/contact">
                   Get Your Transformation Plan
