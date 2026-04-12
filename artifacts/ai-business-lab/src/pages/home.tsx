@@ -119,27 +119,27 @@ export default function Home() {
               <p className="text-white/40 text-xs font-medium uppercase tracking-wider">Tools We Automate</p>
               <div className="flex items-center gap-6">
                 <img
-                  src="https://cdn.simpleicons.org/openai/ffffff"
+                  src="/openai.svg"
                   alt="OpenAI"
-                  className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  className="h-8 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
                   title="OpenAI"
                 />
                 <img
-                  src="https://cdn.simpleicons.org/anthropic/ffffff"
+                  src="/anthropic.svg"
                   alt="Anthropic"
-                  className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  className="h-8 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
                   title="Anthropic"
                 />
                 <img
-                  src="https://cdn.simpleicons.org/zapier/ffffff"
+                  src="/zapier.svg"
                   alt="Zapier"
-                  className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  className="h-8 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
                   title="Zapier"
                 />
                 <img
-                  src="https://cdn.simpleicons.org/make/ffffff"
+                  src="/make.svg"
                   alt="Make"
-                  className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  className="h-8 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
                   title="Make"
                 />
               </div>
