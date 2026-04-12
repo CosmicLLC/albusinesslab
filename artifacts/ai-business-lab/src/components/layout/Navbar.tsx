@@ -34,7 +34,7 @@ export function Navbar() {
       <Container>
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2.5">
-            <img src="/logo.png" alt="AI Business Lab" className="h-8 w-8 object-contain" />
+            <img src="/logo.png" alt="AI Business Lab" className="h-10 w-10 object-contain" />
             <span className="font-bold text-lg tracking-tight text-foreground">AI Business Lab</span>
           </Link>
 
