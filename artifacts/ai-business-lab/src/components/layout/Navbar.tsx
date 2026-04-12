@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { href: "/system", label: "AI System" },
   { href: "/training", label: "Training" },
   { href: "/insights", label: "AI School" },
+  { href: "/website-builder", label: "Website Builder" },
   { href: "/about", label: "About" },
 ]
 
