@@ -111,25 +111,25 @@ export default function Home() {
               <p className="text-white/40 text-xs font-medium uppercase tracking-wider">Tools We Automate</p>
               <div className="flex items-center gap-6">
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1200px-OpenAI_Logo.svg.png"
+                  src="https://cdn.simpleicons.org/openai/ffffff"
                   alt="OpenAI"
                   className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
                   title="OpenAI"
                 />
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Anthropic_PBC_Logo.svg"
+                  src="https://cdn.simpleicons.org/anthropic/ffffff"
                   alt="Anthropic"
                   className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
                   title="Anthropic"
                 />
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Zapier_logo.svg"
+                  src="https://cdn.simpleicons.org/zapier/ffffff"
                   alt="Zapier"
                   className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
                   title="Zapier"
                 />
                 <img
-                  src="https://www.make.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fun655fb9wln6%2F1CcJoAGqfr6Yzk8fWGJJpI%2F5d79d2cb3889fb7c9c23199896e29906%2FMake_logo.svg&w=96&q=75"
+                  src="https://cdn.simpleicons.org/make/ffffff"
                   alt="Make"
                   className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
                   title="Make"
