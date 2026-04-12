@@ -10,6 +10,7 @@ import Training from "@/pages/training";
 import Insights from "@/pages/insights";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
+import WebsiteBuilder from "@/pages/website-builder";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ function Router() {
         <Route path="/insights" component={Insights} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
+        <Route path="/website-builder" component={WebsiteBuilder} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
