@@ -41,7 +41,15 @@ export default function Home() {
       {/* ── Hero ── */}
       {/* -mt-20 pulls the dark hero up under the fixed navbar to eliminate
           the white gap that Layout's main pt-20 would otherwise create. */}
-      <section className="relative overflow-hidden bg-[#070E1C] -mt-20">
+      <section
+        className="relative overflow-hidden bg-[#070E1C] -mt-20 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/hero-bg.svg')",
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover'
+        }}
+      >
         {/* Deep blue radial glow — mirrors genaipi's center glow */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full bg-[#1E3A8A]/30 blur-[120px]" />
