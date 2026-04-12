@@ -119,6 +119,30 @@ export default function Home() {
               Founded by <span className="text-white/80 font-medium">James Greulich</span> — operator, founder.
             </motion.p>
 
+            {/* Tools We Automate */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mt-8 flex flex-col items-center gap-3"
+            >
+              <p className="text-white/40 text-xs font-medium uppercase tracking-wider">Tools We Automate</p>
+              <div className="flex items-center gap-6">
+                <div className="h-8 w-8 bg-white/10 rounded-md flex items-center justify-center">
+                  <span className="text-white/60 text-xs font-bold">OpenAI</span>
+                </div>
+                <div className="h-8 w-8 bg-white/10 rounded-md flex items-center justify-center">
+                  <span className="text-white/60 text-xs font-bold">Anthropic</span>
+                </div>
+                <div className="h-8 w-8 bg-white/10 rounded-md flex items-center justify-center">
+                  <span className="text-white/60 text-xs font-bold">Zapier</span>
+                </div>
+                <div className="h-8 w-8 bg-white/10 rounded-md flex items-center justify-center">
+                  <span className="text-white/60 text-xs font-bold">Make</span>
+                </div>
+              </div>
+            </motion.div>
+
           </div>
         </Container>
       </section>
