@@ -96,7 +96,7 @@ export default function Home() {
                 className="h-12 px-8 text-base font-semibold bg-[#3B82F6] hover:bg-[#2563EB] text-white border-0"
               >
                 <Link href="/contact">
-                  Schedule Strategy Call
+                  Get Your Transformation Plan
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
