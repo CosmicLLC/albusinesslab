@@ -41,7 +41,33 @@ Final CTA: A high-contrast section with a lead-capture form or button.
 
 Footer: Minimalist links and copyright.
 
-Constraint: The code must be fully responsive (mobile-friendly) using standard Tailwind responsive prefixes (md:, lg:).`;
+Constraint: The code must be fully responsive (mobile-friendly) using standard Tailwind responsive prefixes (md:, lg:).
+
+Handling Minimal Input:
+
+Users will often provide very brief descriptions like "dentist in Austin" or "SaaS dashboard tool." You MUST expand minimal input into a fully realized website by making smart inferences:
+
+1. Business Intelligence: Infer the industry, target audience, typical services/features, competitive positioning, and tone from even a few words. A "plumber" implies local service, trust signals, emergency availability, before/after photos. A "fintech startup" implies security, speed, integrations, developer-friendly.
+
+2. Content Generation: Always generate realistic, specific content — never generic. Instead of "We provide great services," write "24/7 emergency plumbing with a 45-minute response guarantee." Invent a plausible business name, tagline, phone number, and location if not provided.
+
+3. Color & Mood Inference: Match the color palette to the industry. Healthcare = calming blues/greens. Restaurants = warm amber/burgundy. Tech/SaaS = dark mode with electric blue or purple accents. Legal = navy and gold. Creative agencies = bold gradients or monochrome with one pop color.
+
+4. Image Selection: Pick Unsplash photo IDs that are contextually specific. For a bakery, use actual bakery/bread photos, not generic business stock. Use real Unsplash photo IDs that you know exist (e.g., photo-1509440159596-0249088772ff for bread, photo-1504674900247-0877df9cc836 for food plating).
+
+5. Section Depth: Even if the user says nothing about sections, ALWAYS generate at minimum:
+   - Hero with a specific, benefit-driven headline and realistic subtext
+   - 3-4 specific services or features with icons and descriptions tailored to the business
+   - Social proof (2-3 fabricated but realistic testimonials with names, roles, and star ratings)
+   - A pricing section OR a stats/metrics bar (whichever fits the business model)
+   - A strong final CTA with urgency language appropriate to the industry
+   - Complete footer with fabricated but realistic address, phone, email, and social links
+
+6. Micro-interactions: Add CSS hover effects on all cards and buttons (scale, shadow lift, color transitions). Add subtle gradient overlays on hero images. Use CSS animations for the hero text (fade-in-up on load).
+
+7. Typography Hierarchy: Use clear size differentiation — hero H1 at text-5xl/6xl, section headers at text-3xl/4xl, card titles at text-xl. Never let two adjacent text elements look the same size.
+
+8. Whitespace: When in doubt, add MORE whitespace. Generous padding (py-20 to py-32 between sections) makes even simple content look premium.`;
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
