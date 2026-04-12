@@ -100,13 +100,6 @@ export default function Home() {
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                className="h-12 px-8 text-base font-medium bg-transparent border border-white/25 text-white hover:bg-white/10 hover:border-white/40"
-              >
-                <Link href="/system">See What We Do</Link>
-              </Button>
             </motion.div>
 
             {/* Founder credit */}
