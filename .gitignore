@@ -48,3 +48,16 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Environment files (contain secrets)
+.env
+.env.local
+.env.*.local
+
+# Vercel CLI
+.vercel/
+
+# Claude Code per-project state
+.claude/
+
+.vercel

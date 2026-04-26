@@ -38,6 +38,14 @@ export default function Contact() {
   const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
+    const cssId = "calendly-css"
+    if (!document.getElementById(cssId)) {
+      const link = document.createElement("link")
+      link.id = cssId
+      link.rel = "stylesheet"
+      link.href = "https://assets.calendly.com/assets/external/widget.css"
+      document.head.appendChild(link)
+    }
     const id = "calendly-script"
     if (!document.getElementById(id)) {
       const script = document.createElement("script")

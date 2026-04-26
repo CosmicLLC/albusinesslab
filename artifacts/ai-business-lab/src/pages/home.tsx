@@ -10,7 +10,7 @@ const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.55, ease: "easeOut" }
+  transition: { duration: 0.55, ease: "easeOut" as const }
 }
 
 const faqs = [
@@ -436,7 +436,7 @@ export default function Home() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{ duration: 0.3, ease: "easeInOut" as const }}
                     >
                       <p className="px-6 pb-6 pt-2 text-muted-foreground leading-relaxed text-sm border-t border-border bg-muted/20">
                         {faq.a}

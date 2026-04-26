@@ -222,9 +222,9 @@ export default async function handler(req, res) {
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const modelCandidates = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"];
 
-    const result = await model.generateContent([
+    const prompt = [
       { text: SYSTEM_PROMPT },
       { text: `### STRATEGIC CONTEXT ENHANCEMENT
 The following business description is provided by a user. Your goal is to amplify this minimal input into a high-converting, professional design by applying these "Expert Inference" rules:
@@ -253,7 +253,24 @@ The following business description is provided by a user. Your goal is to amplif
 
 ### USER INPUT TO TRANSFORM:
 "${description}"` },
-    ]);
+    ];
+
+    let result;
+    let lastErr;
+    for (const modelName of modelCandidates) {
+      try {
+        const model = genAI.getGenerativeModel({ model: modelName });
+        result = await model.generateContent(prompt);
+        break;
+      } catch (e) {
+        lastErr = e;
+        const msg = String(e?.message || "");
+        const isRetryable = msg.includes("503") || msg.includes("overloaded") || msg.includes("high demand") || msg.includes("429");
+        if (!isRetryable) throw e;
+        console.warn(`[generate-website] ${modelName} unavailable, trying next fallback`);
+      }
+    }
+    if (!result) throw lastErr ?? new Error("All Gemini models unavailable");
 
     const response = result.response;
     let html = response.text();
