@@ -126,6 +126,7 @@ export default function SkyScene({ phase }: { phase: Phase }) {
     v.muted = true
     v.playsInline = true
     v.loop = false
+    v.playbackRate = 0.5
 
     const tryPlay = () => v.play().catch(() => {})
     tryPlay()
@@ -149,8 +150,9 @@ export default function SkyScene({ phase }: { phase: Phase }) {
           }
         } else {
           // Reverse — keep video paused, advance currentTime backwards by hand.
+          // Match the forward playbackRate (0.5) so both directions feel equal.
           if (v!.paused === false) v!.pause()
-          const next = v!.currentTime - dt
+          const next = v!.currentTime - dt * 0.5
           if (next <= 0.05) {
             v!.currentTime = 0
             direction = 1
