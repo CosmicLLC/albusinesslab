@@ -15,7 +15,12 @@ provides only 1–3 words of input.
 - HTML5, Tailwind CSS via CDN, vanilla JS only
 - Google Fonts: Inter (primary) + one display font per industry (see palette map)
 - Lucide Icons via CDN (https://unpkg.com/lucide@latest)
-- Unsplash for all imagery (use specific curated photo IDs, never random)
+- IMAGES — use ONLY these two services. They always return real images. NEVER use images.unsplash.com — every fabricated photo ID 404s:
+  • Hero / section / card photos:  https://picsum.photos/seed/<UNIQUE-KEYWORD>/<W>/<H>
+    - Pick a unique descriptive seed per <img> (e.g. "bakery-hero", "bakery-bread-1", "bakery-team")
+    - Hero w=1920 h=1080, feature/card w=800 h=600, thumbnails w=400 h=300
+  • Testimonial avatars / team headshots:  https://i.pravatar.cc/200?u=<UNIQUE-NAME>
+    - Use a unique u value per person (e.g. u=sarahjohnson, u=michael-chen-cto)
 - NO external JS frameworks. NO placeholder text. NO lorem ipsum. EVER.
 - Output: one complete, self-contained HTML file. No markdown, no code fences, no explanation.
 
@@ -85,10 +90,11 @@ When the user provides minimal input (even just 1-3 words), you MUST:
    - E-commerce/Retail: bg-white, #ec4899 pink accent, Poppins display font
    - Default (unclear industry): bg-slate-950, #3b82f6 blue, Inter only
 
-4. SELECT contextually specific Unsplash photo IDs:
-   - Use real photo IDs you know exist on Unsplash
-   - Match photos to the specific industry, not generic business stock
-   - Use high-quality hero images (w=1920), card images (w=800), testimonial portraits (w=200)
+4. SELECT image URLs that match the industry context:
+   - All <img src> values MUST come from picsum.photos (with unique seeds) or i.pravatar.cc (per the IMAGES rule above)
+   - Pick descriptive seeds that hint at the content placement: "fintech-hero", "fintech-dashboard-1", "saas-team-meeting"
+   - Hero w=1920 h=1080, feature/card w=800 h=600, thumbnails w=400 h=300, avatars 200x200
+   - DO NOT emit any images.unsplash.com URLs — they will be broken
 
 ════════════════════════════════════════
   REQUIRED PAGE STRUCTURE
@@ -128,7 +134,7 @@ Every generated page MUST include ALL of these sections in this order:
 6. TESTIMONIALS
    - 2-3 testimonial cards with: quote, person name, role/company, star rating
    - Use realistic names and titles appropriate to the industry
-   - Include small circular avatar images from Unsplash
+   - Include small circular avatar images from i.pravatar.cc (each with a unique ?u= query param tied to the person's name)
 
 7. PRICING OR STATS SECTION
    - If service business: 3-tier pricing cards (Basic/Pro/Enterprise pattern)
@@ -222,7 +228,12 @@ export default async function handler(req, res) {
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
-    const modelCandidates = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"];
+    // Fallback chain — current generally-available Gemini 2.5 models.
+    // 2.5-flash-lite is primary because Vercel Hobby caps functions at 60s and
+    // the larger flash model regularly takes ~59s for ~2k-line HTML outputs,
+    // leaving no headroom for cold-start + network.
+    // Avoid 2.0-flash and 1.5-flash: they 404 "no longer available to new users" on newer API keys.
+    const modelCandidates = ["gemini-2.5-flash-lite", "gemini-2.5-flash", "gemini-2.5-pro"];
 
     const prompt = [
       { text: SYSTEM_PROMPT },
@@ -244,7 +255,7 @@ The following business description is provided by a user. Your goal is to amplif
 3. THE "STITCH" DESIGN DNA:
    - Layout: Heavy use of "Bento Grids" (asymmetrical rounded cards).
    - Components: Glassmorphism headers, high-contrast buttons with ring offsets, and oversized typography (text-5xl to text-7xl).
-   - Assets: All <img> tags must use professional Unsplash IDs. Do not use generic placeholders.
+   - Assets: All <img> tags MUST use https://picsum.photos/seed/<KEYWORD>/<W>/<H> (with unique seeds per image) for photos and https://i.pravatar.cc/200?u=<NAME> for people. NEVER use images.unsplash.com URLs — they 404.
 
 4. TECHNICAL OUTPUT:
    - Return ONLY raw HTML/Tailwind code.
@@ -265,9 +276,15 @@ The following business description is provided by a user. Your goal is to amplif
       } catch (e) {
         lastErr = e;
         const msg = String(e?.message || "");
-        const isRetryable = msg.includes("503") || msg.includes("overloaded") || msg.includes("high demand") || msg.includes("429");
-        if (!isRetryable) throw e;
-        console.warn(`[generate-website] ${modelName} unavailable, trying next fallback`);
+        const isOverloaded = msg.includes("503") || msg.includes("overloaded") || msg.includes("high demand") || msg.includes("429");
+        // Treat "model deprecated / restricted to existing users" as retryable
+        // so the chain falls through to the next candidate instead of erroring.
+        const isModelUnavailable =
+          (msg.includes("404") && (msg.includes("no longer available") || msg.includes("is not available") || msg.includes("not found"))) ||
+          msg.includes("is no longer supported") ||
+          msg.includes("deprecated");
+        if (!isOverloaded && !isModelUnavailable) throw e;
+        console.warn(`[generate-website] ${modelName} unavailable (${isModelUnavailable ? "deprecated/restricted" : "overloaded"}), trying next fallback`);
       }
     }
     if (!result) throw lastErr ?? new Error("All Gemini models unavailable");
