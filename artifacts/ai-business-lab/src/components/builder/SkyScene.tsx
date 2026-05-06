@@ -1,4 +1,8 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, lazy, Suspense } from "react"
+
+// Three.js cloud fly-through is lazy-loaded — three/drei/r3f only ship to
+// users who actually click Generate, not to every landing-page visitor.
+const CloudsFlyThrough = lazy(() => import("./CloudsFlyThrough"))
 
 type Phase =
   | "idle"
@@ -237,6 +241,25 @@ export default function SkyScene({ phase }: { phase: Phase }) {
             "radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(6,9,26,0.55) 100%)",
         }}
       />
+
+      {/* Three.js cloud fly-through — covers the video during ascent so the
+          user feels they're flying THROUGH volumetric clouds before the
+          "above the cloud line" video loading state takes over. Unmounts
+          when ascent ends, revealing the video underneath. */}
+      {phase === "ascending" && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 4,
+            pointerEvents: "none",
+          }}
+        >
+          <Suspense fallback={null}>
+            <CloudsFlyThrough />
+          </Suspense>
+        </div>
+      )}
 
       {/* GTA-style "Loading" indicator, bottom-right. Only visible while a
           generation is actually in progress. */}
