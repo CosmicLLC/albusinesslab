@@ -3,7 +3,7 @@
 // this script has no way to discover routes on its own.
 import { readFileSync, writeFileSync } from "node:fs"
 
-const SITE_URL = process.env.SITE_URL ?? "https://aibizlab.com"
+const SITE_URL = process.env.SITE_URL ?? "https://aibizlab.org"
 
 const routesPath = new URL("../src/seo/routes.json", import.meta.url)
 const outPath = new URL("../public/sitemap.xml", import.meta.url)

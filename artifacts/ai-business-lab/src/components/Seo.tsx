@@ -6,7 +6,7 @@ import { useEffect } from "react"
 // signal than server-rendered meta tags. Fine for now; revisit with a
 // prerender step if crawl coverage becomes an issue.
 
-export const SITE_URL = "https://aibizlab.com"
+export const SITE_URL = "https://aibizlab.org"
 export const SITE_NAME = "AI Business Lab"
 
 interface SeoProps {
