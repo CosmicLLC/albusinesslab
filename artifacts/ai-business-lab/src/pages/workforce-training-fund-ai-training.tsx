@@ -339,6 +339,37 @@ export default function WorkforceTrainingFundAiTraining() {
         </Container>
       </Section>
 
+      {/* ── Explore by industry / location ── */}
+      <Section className="bg-muted/40 border-y border-border">
+        <Container>
+          <motion.div {...fadeUp} className="max-w-2xl mb-10">
+            <h2 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">Explore by industry or location</h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              WTFP eligibility works the same regardless of industry or city — here's how it applies to a few we work
+              with often.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-4">
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Industries</h3>
+              <ul className="space-y-2">
+                <li><Link href="/industries/trades-home-services" className="text-foreground hover:text-primary transition-colors">Trades &amp; Home Services</Link></li>
+                <li><Link href="/industries/retail" className="text-foreground hover:text-primary transition-colors">Retail</Link></li>
+                <li><Link href="/industries/professional-services" className="text-foreground hover:text-primary transition-colors">Professional Services</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Locations</h3>
+              <ul className="space-y-2">
+                <li><Link href="/ai-consulting/boston-ma" className="text-foreground hover:text-primary transition-colors">Boston, MA</Link></li>
+                <li><Link href="/ai-consulting/worcester-ma" className="text-foreground hover:text-primary transition-colors">Worcester, MA</Link></li>
+                <li><Link href="/ai-consulting/quincy-ma" className="text-foreground hover:text-primary transition-colors">Quincy, MA</Link></li>
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       {/* ── FAQ ── */}
       <Section>
         <Container>

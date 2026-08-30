@@ -15,6 +15,12 @@ import WebsiteBuilder from "@/pages/website-builder";
 import WorkforceTrainingFundAiTraining from "@/pages/workforce-training-fund-ai-training";
 import AiConsultingVsHiringInHouse from "@/pages/vs/ai-consulting-vs-hiring-in-house";
 import AiAutomationAgencyVsSoftwareVendor from "@/pages/vs/ai-automation-agency-vs-software-vendor";
+import TradesHomeServices from "@/pages/industries/trades-home-services";
+import Retail from "@/pages/industries/retail";
+import ProfessionalServices from "@/pages/industries/professional-services";
+import BostonMa from "@/pages/ai-consulting/boston-ma";
+import WorcesterMa from "@/pages/ai-consulting/worcester-ma";
+import QuincyMa from "@/pages/ai-consulting/quincy-ma";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -35,6 +41,12 @@ function Router() {
         <Route path="/workforce-training-fund-ai-training" component={WorkforceTrainingFundAiTraining} />
         <Route path="/vs/ai-consulting-vs-hiring-in-house" component={AiConsultingVsHiringInHouse} />
         <Route path="/vs/ai-automation-agency-vs-software-vendor" component={AiAutomationAgencyVsSoftwareVendor} />
+        <Route path="/industries/trades-home-services" component={TradesHomeServices} />
+        <Route path="/industries/retail" component={Retail} />
+        <Route path="/industries/professional-services" component={ProfessionalServices} />
+        <Route path="/ai-consulting/boston-ma" component={BostonMa} />
+        <Route path="/ai-consulting/worcester-ma" component={WorcesterMa} />
+        <Route path="/ai-consulting/quincy-ma" component={QuincyMa} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

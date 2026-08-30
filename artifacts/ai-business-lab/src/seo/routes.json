@@ -9,5 +9,11 @@
   { "path": "/website-builder", "changefreq": "monthly", "priority": 0.5 },
   { "path": "/workforce-training-fund-ai-training", "changefreq": "monthly", "priority": 0.9 },
   { "path": "/vs/ai-consulting-vs-hiring-in-house", "changefreq": "monthly", "priority": 0.6 },
-  { "path": "/vs/ai-automation-agency-vs-software-vendor", "changefreq": "monthly", "priority": 0.6 }
+  { "path": "/vs/ai-automation-agency-vs-software-vendor", "changefreq": "monthly", "priority": 0.6 },
+  { "path": "/industries/trades-home-services", "changefreq": "monthly", "priority": 0.7 },
+  { "path": "/industries/retail", "changefreq": "monthly", "priority": 0.7 },
+  { "path": "/industries/professional-services", "changefreq": "monthly", "priority": 0.7 },
+  { "path": "/ai-consulting/boston-ma", "changefreq": "monthly", "priority": 0.7 },
+  { "path": "/ai-consulting/worcester-ma", "changefreq": "monthly", "priority": 0.7 },
+  { "path": "/ai-consulting/quincy-ma", "changefreq": "monthly", "priority": 0.7 }
 ]
