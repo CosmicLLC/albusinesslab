@@ -12,6 +12,9 @@ import Insights from "@/pages/insights";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import WebsiteBuilder from "@/pages/website-builder";
+import WorkforceTrainingFundAiTraining from "@/pages/workforce-training-fund-ai-training";
+import AiConsultingVsHiringInHouse from "@/pages/vs/ai-consulting-vs-hiring-in-house";
+import AiAutomationAgencyVsSoftwareVendor from "@/pages/vs/ai-automation-agency-vs-software-vendor";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -28,6 +31,10 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/website-builder" component={WebsiteBuilder} />
+        {/* Keep this list in sync with src/seo/routes.json (used to generate sitemap.xml) */}
+        <Route path="/workforce-training-fund-ai-training" component={WorkforceTrainingFundAiTraining} />
+        <Route path="/vs/ai-consulting-vs-hiring-in-house" component={AiConsultingVsHiringInHouse} />
+        <Route path="/vs/ai-automation-agency-vs-software-vendor" component={AiAutomationAgencyVsSoftwareVendor} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

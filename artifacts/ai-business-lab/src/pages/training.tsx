@@ -4,10 +4,30 @@ import { Section } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { Link } from "wouter"
 import { Check } from "lucide-react"
+import { Seo, SITE_URL } from "@/components/Seo"
+
+const trainingJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Corporate AI Training",
+  provider: {
+    "@type": "Organization",
+    name: "AI Business Lab",
+    url: SITE_URL,
+  },
+  description:
+    "Corporate AI training programs: Boardroom AI Fluency for executives and Applied Engineering for technical teams.",
+}
 
 export default function Training() {
   return (
     <div className="flex flex-col w-full">
+      <Seo
+        title="Corporate AI Training | AI Business Lab"
+        description="Equip leadership and technical teams with practical AI skills — executive fluency programs and hands-on applied engineering workshops."
+        path="/training"
+        jsonLd={trainingJsonLd}
+      />
       <section className="pt-32 pb-24 border-b border-border bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-accent/20 via-background to-background">
         <Container>
           <motion.div 

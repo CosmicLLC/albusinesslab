@@ -5,6 +5,22 @@ import { Section } from "@/components/ui/section"
 import { ArrowRight, Check, X, ChevronDown, Brain, Users, TrendingUp, Clock } from "lucide-react"
 import { Link } from "wouter"
 import { useState } from "react"
+import { Seo, SITE_URL } from "@/components/Seo"
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "AI Business Lab",
+  url: SITE_URL,
+  // NOTE: address is what's published on /contact today (Walpole, MA) — verify
+  // full street address and phone before treating this as complete NAP data.
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Walpole",
+    addressRegion: "MA",
+    addressCountry: "US",
+  },
+}
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -37,6 +53,12 @@ export default function Home() {
 
   return (
     <div className="flex flex-col w-full">
+      <Seo
+        title="AI Business Lab | Enterprise AI Transformation"
+        description="Add an autonomous AI workforce to your team. Strategy, implementation, and training for organizations ready to move decisively on AI."
+        path="/"
+        jsonLd={localBusinessJsonLd}
+      />
 
       {/* ── Hero ── */}
       {/* -mt-20 pulls the dark hero up under the fixed navbar to eliminate

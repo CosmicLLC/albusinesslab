@@ -13,6 +13,7 @@ import {
   RefreshCw,
 } from "lucide-react"
 import SkyScene from "@/components/builder/SkyScene"
+import { Seo } from "@/components/Seo"
 
 /**
  * Website Builder — three-phase cinematic experience.
@@ -172,6 +173,11 @@ export default function WebsiteBuilder() {
 
   return (
     <div className="fixed inset-x-0 top-20 bottom-0 z-[40] overflow-hidden bg-white text-[#111827]">
+      <Seo
+        title="AI Website Builder | AI Business Lab"
+        description="Describe your business and generate a working website in minutes with AI Business Lab's AI-powered website builder."
+        path="/website-builder"
+      />
       {/* Sky gradient layered behind everything (Phase 1's "minimal background"). */}
       <div
         className="absolute inset-0 -z-10"

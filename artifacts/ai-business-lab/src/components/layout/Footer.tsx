@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-background pt-16 pb-8">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
           <div className="md:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
               <img src="/logo.png" alt="AI Business Lab" className="h-8 w-8 object-contain" />
@@ -22,6 +22,14 @@ export function Footer() {
               <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors text-sm">Implementation</Link></li>
               <li><Link href="/training" className="text-muted-foreground hover:text-primary transition-colors text-sm">Corporate Training</Link></li>
               <li><Link href="/system" className="text-muted-foreground hover:text-primary transition-colors text-sm">Transformation System</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-medium mb-4 text-sm text-foreground">Resources</h4>
+            <ul className="space-y-3">
+              <li><Link href="/workforce-training-fund-ai-training" className="text-muted-foreground hover:text-primary transition-colors text-sm">MA Workforce Training Fund</Link></li>
+              <li><Link href="/vs/ai-consulting-vs-hiring-in-house" className="text-muted-foreground hover:text-primary transition-colors text-sm">Consulting vs. Hiring In-House</Link></li>
+              <li><Link href="/vs/ai-automation-agency-vs-software-vendor" className="text-muted-foreground hover:text-primary transition-colors text-sm">Agency vs. Software Vendor</Link></li>
             </ul>
           </div>
           <div>

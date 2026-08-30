@@ -17,6 +17,22 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { useState, useEffect } from "react"
+import { Seo, SITE_URL } from "@/components/Seo"
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "AI Business Lab",
+  url: SITE_URL,
+  // NOTE: address is what's published on this page (Walpole, MA) — verify
+  // full street address and phone before treating this as complete NAP data.
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Walpole",
+    addressRegion: "MA",
+    addressCountry: "US",
+  },
+}
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -99,6 +115,12 @@ export default function Contact() {
 
   return (
     <div className="flex flex-col w-full">
+      <Seo
+        title="Contact | Book a Strategy Session | AI Business Lab"
+        description="Book a free 30-minute strategy session with AI Business Lab, or send an inquiry directly to our team."
+        path="/contact"
+        jsonLd={localBusinessJsonLd}
+      />
       {/* Calendly scheduling section — first */}
       <Section className="pt-24 pb-24 bg-[#F9FAFB]">
         <Container>
