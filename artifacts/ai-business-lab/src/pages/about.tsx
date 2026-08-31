@@ -2,16 +2,10 @@ import { motion } from "framer-motion"
 import { Container } from "@/components/ui/container"
 import { Section } from "@/components/ui/section"
 import { Check } from "lucide-react"
-import { Seo } from "@/components/Seo"
 
 export default function About() {
   return (
     <div className="flex flex-col w-full">
-      <Seo
-        title="About AI Business Lab"
-        description="Former Big Tech ML engineers and enterprise architects building formidable AI capabilities for serious organizations."
-        path="/about"
-      />
       <section className="pt-32 pb-24 border-b border-border bg-card/20">
         <Container>
           <motion.div 

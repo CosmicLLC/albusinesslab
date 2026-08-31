@@ -1,7 +1,6 @@
 import { motion } from "framer-motion"
 import { Container } from "@/components/ui/container"
 import { Section } from "@/components/ui/section"
-import { Seo } from "@/components/Seo"
 
 const phases = [
   {
@@ -37,11 +36,6 @@ const phases = [
 export default function System() {
   return (
     <div className="flex flex-col w-full">
-      <Seo
-        title="The AI Transformation System | AI Business Lab"
-        description="Our four-phase methodology for enterprise AI deployment: reconnaissance, architecture blueprint, prototyping, and production rollout."
-        path="/system"
-      />
       <section className="pt-32 pb-24 border-b border-border">
         <Container>
           <motion.div 

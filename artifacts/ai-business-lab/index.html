@@ -8,6 +8,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!--
+      Prerendered pages carry framer-motion's entrance state (opacity: 0) inline,
+      which the bundle then animates in. Without JavaScript that content would
+      stay invisible, so neutralize it here. Scoped to <noscript>, this never
+      applies when the bundle runs and therefore cannot affect hydration.
+    -->
+    <noscript>
+      <style>
+        [style*="opacity:0"] { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
   </head>
   <body>
     <div id="root"></div>

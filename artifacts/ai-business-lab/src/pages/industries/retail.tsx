@@ -4,7 +4,6 @@ import { Section } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { Link } from "wouter"
 import { Check, PackageSearch, MessagesSquare, Megaphone, RotateCcw } from "lucide-react"
-import { Seo, SITE_URL } from "@/components/Seo"
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -47,27 +46,9 @@ const workflows = [
   "Turning a week's worth of sales and return data into a plain-English summary instead of a spreadsheet nobody has time to read.",
 ]
 
-const industryJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  serviceType: "AI Workflow Automation for Retail",
-  areaServed: "Massachusetts",
-  provider: {
-    "@type": "Organization",
-    name: "AI Business Lab",
-    url: SITE_URL,
-  },
-}
-
 export default function Retail() {
   return (
     <div className="flex flex-col w-full">
-      <Seo
-        title="AI for Retail Small Businesses in Massachusetts"
-        description="AI tools for Massachusetts retail small businesses — smarter reordering, faster customer replies, and marketing content that keeps up with the calendar."
-        path="/industries/retail"
-        jsonLd={industryJsonLd}
-      />
 
       {/* ── Hero ── */}
       <section className="pt-32 pb-24 border-b border-border bg-card/20">

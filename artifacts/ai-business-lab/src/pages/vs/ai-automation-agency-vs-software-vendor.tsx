@@ -4,7 +4,6 @@ import { Section } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { Link } from "wouter"
 import { Check, X } from "lucide-react"
-import { Seo } from "@/components/Seo"
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -44,11 +43,6 @@ const rows = [
 export default function AiAutomationAgencyVsSoftwareVendor() {
   return (
     <div className="flex flex-col w-full">
-      <Seo
-        title="AI Automation Agency vs. Software Vendor | AI Business Lab"
-        description="Buying another SaaS tool vs. hiring an AI automation agency to build workflows around your process — a comparison for small business owners."
-        path="/vs/ai-automation-agency-vs-software-vendor"
-      />
 
       {/* ── Hero ── */}
       <section className="pt-32 pb-24 border-b border-border bg-card/20">

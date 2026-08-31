@@ -16,8 +16,19 @@ if (Number.isNaN(port) || port <= 0) {
 
 const basePath = process.env.BASE_PATH ?? "/";
 
-export default defineConfig({
+// Two builds run from this config:
+//   `vite build`       -> dist/      (client bundle + index.html template)
+//   `vite build --ssr` -> dist-ssr/  (entry-server, used by scripts/prerender.mjs)
+// isSsrBuild tells them apart so the SSR pass doesn't inherit client-only
+// settings like manualChunks, which Rollup rejects for SSR output.
+export default defineConfig(async ({ isSsrBuild }) => ({
   base: basePath,
+  // DIAG=1 builds against React's development bundle so hydration mismatches
+  // report the offending element instead of a minified error code. Diagnostic
+  // only — never set in a real build.
+  ...(process.env.DIAG
+    ? { define: { "process.env.NODE_ENV": JSON.stringify("development") } }
+    : {}),
   plugins: [
     react(),
     tailwindcss(),
@@ -49,9 +60,14 @@ export default defineConfig({
     // Output to package-local dist/ so it matches the Vite preset's
     // default and the outputDirectory configured in vercel.json (with
     // Vercel Root Directory set to artifacts/ai-business-lab).
-    outDir: path.resolve(import.meta.dirname, "dist"),
+    outDir: path.resolve(import.meta.dirname, isSsrBuild ? "dist-ssr" : "dist"),
     emptyOutDir: true,
-    rollupOptions: {
+    ssr: isSsrBuild ? path.resolve(import.meta.dirname, "src/entry-server.tsx") : undefined,
+    // `root` points at the package dir, so Rollup's input would otherwise
+    // default to index.html — which SSR builds reject. Name the entry directly.
+    rollupOptions: isSsrBuild ? {
+      input: path.resolve(import.meta.dirname, "src/entry-server.tsx"),
+    } : {
       output: {
         manualChunks(id) {
           if (!id.includes("node_modules")) return;
@@ -89,4 +105,4 @@ export default defineConfig({
     host: "0.0.0.0",
     allowedHosts: true,
   },
-});
+}));

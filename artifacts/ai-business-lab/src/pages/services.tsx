@@ -2,7 +2,6 @@ import { motion } from "framer-motion"
 import { Container } from "@/components/ui/container"
 import { Section } from "@/components/ui/section"
 import { ServerCog, Workflow, Lightbulb, Network, Database, ShieldCheck } from "lucide-react"
-import { Seo, SITE_URL } from "@/components/Seo"
 
 const services = [
   {
@@ -49,28 +48,9 @@ const services = [
   }
 ]
 
-const servicesJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  serviceType: "AI Consulting",
-  provider: {
-    "@type": "Organization",
-    name: "AI Business Lab",
-    url: SITE_URL,
-  },
-  description:
-    "Strategic AI transformation for enterprise leaders — strategy formulation, custom LLM/RAG architectures, data readiness, autonomous agents, systems integration, and AI governance.",
-}
-
 export default function Services() {
   return (
     <div className="flex flex-col w-full">
-      <Seo
-        title="AI Consulting Services | AI Business Lab"
-        description="End-to-end AI consulting: strategy, custom LLM/RAG architectures, data readiness, autonomous agents, systems integration, and governance."
-        path="/services"
-        jsonLd={servicesJsonLd}
-      />
       <section className="pt-32 pb-24 border-b border-border bg-card/20">
         <Container>
           <motion.div 

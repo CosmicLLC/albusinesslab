@@ -4,7 +4,6 @@ import { Section } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { Link } from "wouter"
 import { Check, FileSearch, Mail, NotebookPen, Clock } from "lucide-react"
-import { Seo, SITE_URL } from "@/components/Seo"
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -47,27 +46,9 @@ const workflows = [
   "Meeting and call summaries with action items pulled out automatically, instead of someone typing notes after the fact.",
 ]
 
-const industryJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  serviceType: "AI Workflow Automation for Professional Services Firms",
-  areaServed: "Massachusetts",
-  provider: {
-    "@type": "Organization",
-    name: "AI Business Lab",
-    url: SITE_URL,
-  },
-}
-
 export default function ProfessionalServices() {
   return (
     <div className="flex flex-col w-full">
-      <Seo
-        title="AI for Professional Services Firms in Massachusetts"
-        description="AI workflow automation for Massachusetts professional services firms — reclaiming billable hours lost to admin work."
-        path="/industries/professional-services"
-        jsonLd={industryJsonLd}
-      />
 
       {/* ── Hero ── */}
       <section className="pt-32 pb-24 border-b border-border bg-card/20">

@@ -209,24 +209,28 @@ const INTRO_CSS = `
  * Wraps the app and plays the zoom-in intro on every page load (every hard
  * reload / first navigation into the SPA). Bypassed only for users with
  * prefers-reduced-motion enabled.
+ *
+ * The intro is a pure OVERLAY: children always render, on the server and on the
+ * client, and the animation is layered on top afterwards. This matters beyond
+ * aesthetics — the previous version returned null until a useEffect had run,
+ * which meant server-side rendering produced an empty document and the
+ * prerendered HTML would have contained no content at all. Never gate the
+ * subtree on client-only state.
+ *
+ * showIntro starts false so the server and the first client render agree (no
+ * hydration mismatch); the effect flips it on immediately after mount.
  */
 export function IntroGate({ children }: { children: React.ReactNode }) {
-  const [showIntro, setShowIntro] = useState<boolean | null>(null);
+  const [showIntro, setShowIntro] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      setShowIntro(false);
-      return;
-    }
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    setShowIntro(!reduced);
+    if (!reduced) setShowIntro(true);
   }, []);
 
   const handleDone = useCallback(() => setShowIntro(false), []);
-
-  if (showIntro === null) return null;
 
   return (
     <>

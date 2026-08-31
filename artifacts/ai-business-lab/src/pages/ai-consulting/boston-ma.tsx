@@ -4,7 +4,6 @@ import { Section } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { Link } from "wouter"
 import { Check } from "lucide-react"
-import { Seo, SITE_URL } from "@/components/Seo"
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -20,31 +19,9 @@ const localFit = [
   "A dense small-business startup and agency scene, many of them already experimenting with AI tools without a clear plan for it.",
 ]
 
-const localBusinessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  serviceType: "AI Consulting and Training",
-  areaServed: {
-    "@type": "City",
-    name: "Boston",
-    address: { "@type": "PostalAddress", addressRegion: "MA", addressCountry: "US" },
-  },
-  provider: {
-    "@type": "Organization",
-    name: "AI Business Lab",
-    url: SITE_URL,
-  },
-}
-
 export default function BostonMa() {
   return (
     <div className="flex flex-col w-full">
-      <Seo
-        title="AI Consulting for Small Businesses in Boston, MA"
-        description="AI training and workflow automation for small businesses in Boston, MA — free readiness Snapshot, WTFP-eligible workshops, and automation sprints."
-        path="/ai-consulting/boston-ma"
-        jsonLd={localBusinessJsonLd}
-      />
 
       {/* ── Hero ── */}
       <section className="pt-32 pb-24 border-b border-border bg-card/20">

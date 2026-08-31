@@ -2,7 +2,6 @@ import { motion } from "framer-motion"
 import { Container } from "@/components/ui/container"
 import { Section } from "@/components/ui/section"
 import { ArrowRight } from "lucide-react"
-import { Seo } from "@/components/Seo"
 
 const articles = [
   {
@@ -52,11 +51,6 @@ const articles = [
 export default function Insights() {
   return (
     <div className="flex flex-col w-full">
-      <Seo
-        title="AI School | Insights & Analysis | AI Business Lab"
-        description="Technical breakdowns and strategic analysis on enterprise AI — architecture, governance, and implementation."
-        path="/insights"
-      />
       <section className="pt-32 pb-24 border-b border-border">
         <Container>
           <motion.div 

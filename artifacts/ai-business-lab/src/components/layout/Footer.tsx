@@ -27,9 +27,13 @@ export function Footer() {
           <div>
             <h4 className="font-medium mb-4 text-sm text-foreground">Resources</h4>
             <ul className="space-y-3">
+              {/* Link the hub pages rather than individual leaves: the hubs
+                  carry the full lists, which keeps every page within the
+                  three-click budget without a sprawling footer. */}
               <li><Link href="/workforce-training-fund-ai-training" className="text-muted-foreground hover:text-primary transition-colors text-sm">MA Workforce Training Fund</Link></li>
-              <li><Link href="/vs/ai-consulting-vs-hiring-in-house" className="text-muted-foreground hover:text-primary transition-colors text-sm">Consulting vs. Hiring In-House</Link></li>
-              <li><Link href="/vs/ai-automation-agency-vs-software-vendor" className="text-muted-foreground hover:text-primary transition-colors text-sm">Agency vs. Software Vendor</Link></li>
+              <li><Link href="/industries" className="text-muted-foreground hover:text-primary transition-colors text-sm">AI by Industry</Link></li>
+              <li><Link href="/ai-consulting" className="text-muted-foreground hover:text-primary transition-colors text-sm">AI Consulting by Location</Link></li>
+              <li><Link href="/vs" className="text-muted-foreground hover:text-primary transition-colors text-sm">Decision Guides</Link></li>
             </ul>
           </div>
           <div>

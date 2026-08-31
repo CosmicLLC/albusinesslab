@@ -4,7 +4,6 @@ import { Section } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { Link } from "wouter"
 import { Check, PhoneMissed, FileClock, ClipboardList, Star } from "lucide-react"
-import { Seo, SITE_URL } from "@/components/Seo"
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -47,27 +46,9 @@ const workflows = [
   "A review-request sequence that fires right after a job is marked complete, while the experience is still fresh.",
 ]
 
-const industryJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  serviceType: "AI Workflow Automation for Trades & Home Services",
-  areaServed: "Massachusetts",
-  provider: {
-    "@type": "Organization",
-    name: "AI Business Lab",
-    url: SITE_URL,
-  },
-}
-
 export default function TradesHomeServices() {
   return (
     <div className="flex flex-col w-full">
-      <Seo
-        title="AI for Trades & Home Service Businesses in MA"
-        description="AI workflow automation for Massachusetts trades and home service businesses — faster quotes, fewer missed calls, less paperwork after hours."
-        path="/industries/trades-home-services"
-        jsonLd={industryJsonLd}
-      />
 
       {/* ── Hero ── */}
       <section className="pt-32 pb-24 border-b border-border bg-card/20">

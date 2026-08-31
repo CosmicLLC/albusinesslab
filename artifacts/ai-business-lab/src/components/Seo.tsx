@@ -1,70 +1,68 @@
 import { useEffect } from "react"
+import { useLocation } from "wouter"
+import { getPageMeta, NOT_FOUND_META } from "@/seo/pages"
+import { headTagsFor, type HeadTag } from "@/seo/head"
 
-// Client-rendered SPA — there's no SSR/prerendering, so these tags land in
-// the DOM after React mounts rather than in the initial HTML response.
-// Google's indexer executes JS and picks this up, but it's a weaker
-// signal than server-rendered meta tags. Fine for now; revisit with a
-// prerender step if crawl coverage becomes an issue.
+/**
+ * Keeps <head> in sync during client-side navigation.
+ *
+ * Mounted once in Layout and driven by the router, so a page cannot forget to
+ * declare its metadata — everything comes from the registry in src/seo/pages.ts.
+ *
+ * On first load the tags are already present in the prerendered HTML (emitted by
+ * scripts/prerender.mjs from the same registry), each marked with data-seo. This
+ * component finds those by key and updates them in place rather than duplicating
+ * them, then prunes any that the new route no longer needs.
+ */
 
-export const SITE_URL = "https://aibizlab.org"
-export const SITE_NAME = "AI Business Lab"
+const MANAGED = "data-seo"
 
-interface SeoProps {
-  title: string
-  description: string
-  path: string
-  jsonLd?: Record<string, unknown> | Record<string, unknown>[]
-}
+function applyTags(tags: HeadTag[]) {
+  const head = document.head
+  const seen = new Set<string>()
 
-function setMetaTag(attr: "name" | "property", key: string, content: string) {
-  let el = document.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`)
-  if (!el) {
-    el = document.createElement("meta")
-    el.setAttribute(attr, key)
-    document.head.appendChild(el)
+  for (const t of tags) {
+    seen.add(t.key)
+    let el = head.querySelector<HTMLElement>(`[${MANAGED}="${CSS.escape(t.key)}"]`)
+
+    if (!el || el.tagName.toLowerCase() !== t.tag) {
+      el?.remove()
+      el = document.createElement(t.tag)
+      el.setAttribute(MANAGED, t.key)
+      head.appendChild(el)
+    }
+
+    for (const [k, v] of Object.entries(t.attrs)) {
+      if (el.getAttribute(k) !== v) el.setAttribute(k, v)
+    }
+    if (t.content !== undefined && el.textContent !== t.content) {
+      el.textContent = t.content
+    }
   }
-  el.setAttribute("content", content)
+
+  // Drop tags left over from the previous route (e.g. a page with JSON-LD
+  // navigating to one without).
+  head.querySelectorAll<HTMLElement>(`[${MANAGED}]`).forEach((el) => {
+    const key = el.getAttribute(MANAGED)
+    if (key && !seen.has(key)) el.remove()
+  })
+
+  // The static template ships a fallback <title>; remove it once ours is live
+  // so the document never carries two.
+  head.querySelectorAll("title").forEach((el) => {
+    if (!el.hasAttribute(MANAGED)) el.remove()
+  })
 }
 
-export function Seo({ title, description, path, jsonLd }: SeoProps) {
+export function Seo() {
+  const [location] = useLocation()
+
   useEffect(() => {
-    document.title = title
-
-    setMetaTag("name", "description", description)
-    setMetaTag("property", "og:title", title)
-    setMetaTag("property", "og:description", description)
-    setMetaTag("property", "og:url", `${SITE_URL}${path}`)
-    setMetaTag("property", "og:type", "website")
-    setMetaTag("property", "og:site_name", SITE_NAME)
-    setMetaTag("name", "twitter:card", "summary_large_image")
-    setMetaTag("name", "twitter:title", title)
-    setMetaTag("name", "twitter:description", description)
-
-    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
-    if (!canonical) {
-      canonical = document.createElement("link")
-      canonical.setAttribute("rel", "canonical")
-      document.head.appendChild(canonical)
-    }
-    canonical.setAttribute("href", `${SITE_URL}${path}`)
-
-    const scriptId = "seo-jsonld"
-    let script = document.getElementById(scriptId) as HTMLScriptElement | null
-    if (jsonLd) {
-      if (!script) {
-        script = document.createElement("script")
-        script.id = scriptId
-        script.type = "application/ld+json"
-        document.head.appendChild(script)
-      }
-      script.textContent = JSON.stringify(jsonLd)
-    } else if (script) {
-      script.remove()
-    }
-    // Tags intentionally aren't torn down on unmount — the next page's
-    // <Seo> overwrites them, and removing on unmount would create a
-    // flash of tagless <head> during route transitions.
-  }, [title, description, path, jsonLd])
+    const page = getPageMeta(location) ?? { ...NOT_FOUND_META, path: location }
+    applyTags(headTagsFor(page))
+  }, [location])
 
   return null
 }
+
+export { SITE_URL, SITE_NAME } from "@/seo/pages"
