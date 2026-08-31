@@ -68,6 +68,15 @@ const sitemapRoutes = [...sitemap.matchAll(/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/
 const prerendered = new Set(pages.map((p) => p.route))
 
 for (const r of appRoutes) {
+  // Parameterized routes (e.g. /insights/:slug) are prerendered once per
+  // registry entry rather than under the literal pattern.
+  if (r.includes(":")) {
+    const prefix = r.slice(0, r.indexOf(":"))
+    if (![...prerendered].some((p) => p.startsWith(prefix) && p !== prefix.replace(/\/$/, ""))) {
+      fail(`dynamic route ${r} has no prerendered pages — add its entries to the SEO registry`)
+    }
+    continue
+  }
   if (!prerendered.has(r)) {
     fail(`route ${r} is in App.tsx but was not prerendered — it will 404 on direct load`)
   }
@@ -75,8 +84,17 @@ for (const r of appRoutes) {
 for (const r of sitemapRoutes) {
   if (!prerendered.has(r)) fail(`sitemap lists ${r} but no static HTML was generated for it`)
 }
+// A prerendered page must be served by some <Route> — either an exact match or
+// a parameterized pattern with the same segment count (e.g. /insights/:slug).
+const matchesRoute = (route) =>
+  appRoutes.some((r) => {
+    const a = r.split("/")
+    const b = route.split("/")
+    return a.length === b.length && a.every((seg, i) => seg.startsWith(":") || seg === b[i])
+  })
+
 for (const p of pages) {
-  if (p.route !== "/404" && !appRoutes.includes(p.route) && p.route !== "/") {
+  if (p.route !== "/404" && p.route !== "/" && !matchesRoute(p.route)) {
     warn(`prerendered ${p.route} has no matching <Route> in App.tsx`)
   }
 }

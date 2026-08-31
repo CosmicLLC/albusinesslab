@@ -15,6 +15,7 @@
  * harness (scripts/verify-seo.mjs) fails the build if the two disagree.
  */
 import { WTFP_FAQS } from "@/content/wtfp-faq"
+import { POSTS, AUTHOR } from "@/content/posts"
 
 export const SITE_URL = "https://aibizlab.org"
 export const SITE_NAME = "AI Business Lab"
@@ -194,17 +195,6 @@ export const PAGES: PageMeta[] = [
     summary: "Article index covering AI architecture, governance and implementation.",
     changefreq: "weekly",
     priority: 0.6,
-    // noindex until the listed articles are real.
-    //
-    // The page currently renders six placeholder cards that link nowhere, one
-    // of them a "Case Study" asserting a specific client outcome ("99.8%
-    // precision" across "10,000+ pages of regulatory text"). That is a
-    // fabricated result, and prerendering would otherwise publish it to
-    // crawlers and AI retrieval as though it were a real engagement.
-    //
-    // Remove this flag once the articles exist and any figures in them are
-    // first-party and sourced.
-    noindex: true,
   },
   {
     path: "/about",
@@ -412,6 +402,38 @@ export const PAGES: PageMeta[] = [
     ],
   },
 ]
+
+/**
+ * Blog posts are generated from src/content/posts.ts rather than listed by
+ * hand, so a post can never exist without metadata or be missing from the
+ * sitemap. They are appended to PAGES below.
+ */
+const POST_PAGES: PageMeta[] = POSTS.map((post) => ({
+  path: `/insights/${post.slug}`,
+  title: post.title,
+  description: post.description,
+  summary: post.summary,
+  changefreq: "yearly",
+  priority: 0.6,
+  lastUpdated: post.date,
+  breadcrumbs: [{ name: "AI School", path: "/insights" }],
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.heading,
+      description: post.description,
+      datePublished: post.date,
+      dateModified: post.date,
+      author: { "@type": "Person", name: AUTHOR },
+      publisher: { "@id": ORG_ID },
+      mainEntityOfPage: absolute(`/insights/${post.slug}`),
+      articleSection: post.category,
+    },
+  ],
+}))
+
+PAGES.push(...POST_PAGES)
 
 const BY_PATH = new Map(PAGES.map((p) => [p.path, p]))
 

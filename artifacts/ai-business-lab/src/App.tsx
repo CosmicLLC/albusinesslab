@@ -9,6 +9,7 @@ import Services from "@/pages/services";
 import System from "@/pages/system";
 import Training from "@/pages/training";
 import Insights from "@/pages/insights";
+import InsightsPost from "@/pages/insights/post";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import WebsiteBuilder from "@/pages/website-builder";
@@ -43,6 +44,9 @@ function Router() {
         <Route path="/system" component={System} />
         <Route path="/training" component={Training} />
         <Route path="/insights" component={Insights} />
+        {/* One dynamic route, but the prerenderer emits a static file per slug
+            from the registry, so each post ships as its own crawlable page. */}
+        <Route path="/insights/:slug" component={InsightsPost} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/website-builder" component={WebsiteBuilder} />

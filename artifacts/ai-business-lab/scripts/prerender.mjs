@@ -189,8 +189,18 @@ const groups = [
   ["By industry", PAGES.filter((p) => p.path.startsWith("/industries")).map((p) => p.path)],
   ["By location", PAGES.filter((p) => p.path.startsWith("/ai-consulting")).map((p) => p.path)],
   ["Decision guides", PAGES.filter((p) => p.path.startsWith("/vs")).map((p) => p.path)],
+  ["Guides and articles", PAGES.filter((p) => p.path.startsWith("/insights/")).map((p) => p.path)],
   ["About", ["/about", "/insights"]],
 ]
+
+// Every indexable page must appear somewhere above, or it is silently omitted
+// from llms.txt as new sections get added.
+const grouped = new Set(groups.flatMap(([, paths]) => paths))
+const ungrouped = PAGES.filter((p) => !p.noindex && !grouped.has(p.path)).map((p) => p.path)
+if (ungrouped.length) {
+  groups.push(["Other", ungrouped])
+  console.warn(`[prerender] llms.txt: ${ungrouped.length} page(s) had no section — listed under "Other"`)
+}
 
 const byPath = new Map(PAGES.map((p) => [p.path, p]))
 const llms = `# AI Business Lab
