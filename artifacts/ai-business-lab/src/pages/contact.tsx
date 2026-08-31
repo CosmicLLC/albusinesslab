@@ -237,12 +237,19 @@ export default function Contact() {
             className="flex flex-col sm:flex-row gap-12 sm:gap-24"
           >
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">Global Headquarters</h3>
-              <p className="text-foreground">Walpole, MA<br/>Operating Worldwide</p>
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">Based In</h3>
+              <p className="text-foreground">Walpole, MA<br/>Serving Massachusetts &amp; Rhode Island</p>
             </div>
             <div>
               <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">Direct Inquiries</h3>
-              <p className="text-foreground">partners@aibusinesslab.example.com</p>
+              {/* The previous address here was partners@aibusinesslab.example.com —
+                  .example.com is a reserved placeholder domain that cannot receive
+                  mail, so every message sent to it bounced. Pointing at the booking
+                  link and form above, both of which work, until a real inbox exists.
+                  Replace this with the genuine address when there is one. */}
+              <p className="text-foreground">
+                Use the booking calendar or the form above — both reach us directly.
+              </p>
             </div>
           </motion.div>
         </Container>

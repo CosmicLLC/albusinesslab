@@ -194,6 +194,17 @@ export const PAGES: PageMeta[] = [
     summary: "Article index covering AI architecture, governance and implementation.",
     changefreq: "weekly",
     priority: 0.6,
+    // noindex until the listed articles are real.
+    //
+    // The page currently renders six placeholder cards that link nowhere, one
+    // of them a "Case Study" asserting a specific client outcome ("99.8%
+    // precision" across "10,000+ pages of regulatory text"). That is a
+    // fabricated result, and prerendering would otherwise publish it to
+    // crawlers and AI retrieval as though it were a real engagement.
+    //
+    // Remove this flag once the articles exist and any figures in them are
+    // first-party and sourced.
+    noindex: true,
   },
   {
     path: "/about",

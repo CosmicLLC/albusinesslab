@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
           <div className="md:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
-              <img src="/logo.png" alt="AI Business Lab" className="h-8 w-8 object-contain" />
+              <img src="/logo.png" alt="AI Business Lab" width={32} height={32} loading="lazy" decoding="async" className="h-8 w-8 object-contain" />
               <span className="font-bold text-lg tracking-tight text-foreground">AI Business Lab</span>
             </Link>
             <p className="text-muted-foreground max-w-sm">

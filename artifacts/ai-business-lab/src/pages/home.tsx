@@ -146,6 +146,10 @@ export default function Home() {
             <img
               src="/james.png"
               alt="James Greulich, founder of AI Business Lab"
+              width={144}
+              height={144}
+              loading="lazy"
+              decoding="async"
               className="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover flex-shrink-0 border border-border shadow-md"
             />
             <div className="flex-1 text-center md:text-left">
