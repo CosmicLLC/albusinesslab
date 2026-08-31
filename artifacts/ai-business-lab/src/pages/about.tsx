@@ -16,7 +16,10 @@ export default function About() {
           >
             <h1 className="text-5xl md:text-7xl font-medium tracking-tighter mb-8">About the Firm</h1>
             <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed">
-              We operate at the intersection of executive strategy and deep technical engineering. We exist to help serious organizations build formidable AI capabilities.
+              AI Business Lab is an AI training and implementation company based in Walpole, Massachusetts, working
+              with small businesses across the state and with larger organizations on longer engagements. We run
+              Workforce Training Fund–eligible workshops, build workflow automations, and say so when AI isn't the
+              right answer.
             </p>
           </motion.div>
         </Container>

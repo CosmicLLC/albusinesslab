@@ -18,7 +18,10 @@ export default function Training() {
           >
             <h1 className="text-5xl md:text-7xl font-medium tracking-tighter mb-8">Corporate AI Training</h1>
             <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed">
-              Equip your leadership and technical teams with the mental models and tactical skills required to operate in an AI-first paradigm. No fluff, just signal.
+              Our AI Fundamentals Workshops are eight-hour, role-specific sessions for Marketing/Content,
+              Customer-Facing and Ops/Admin teams — and they're structured to qualify for reimbursement under the
+              Massachusetts Workforce Training Fund Program. For larger organizations we also run the executive and
+              engineering programs below.
             </p>
           </motion.div>
         </Container>

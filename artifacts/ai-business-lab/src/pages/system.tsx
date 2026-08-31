@@ -49,7 +49,10 @@ export default function System() {
             </div>
             <h1 className="text-5xl md:text-7xl font-medium tracking-tighter mb-8">The AI Transformation System</h1>
             <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed">
-              A proprietary, four-phase framework designed to rapidly turn institutional chaos into deployed, governable machine intelligence. Predictable. Uncompromising. Effective.
+              The AI Transformation System is our four-phase method for larger engagements: reconnaissance,
+              architecture blueprint, prototype, deployment. Most smaller Massachusetts businesses don't need all
+              four — a fixed-scope Workflow Automation Sprint handles one high-friction process in two to four weeks
+              instead.
             </p>
           </motion.div>
         </Container>

@@ -2,6 +2,8 @@ import { motion } from "framer-motion"
 import { Container } from "@/components/ui/container"
 import { Section } from "@/components/ui/section"
 import { ServerCog, Workflow, Lightbulb, Network, Database, ShieldCheck } from "lucide-react"
+import { Link } from "wouter"
+import { Button } from "@/components/ui/button"
 
 const services = [
   {
@@ -61,7 +63,9 @@ export default function Services() {
           >
             <h1 className="text-5xl md:text-7xl font-medium tracking-tighter mb-8">Consulting Services</h1>
             <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed">
-              End-to-end capabilities spanning strategic discovery, custom engineering, and secure deployment. We build intelligence infrastructure for the modern enterprise.
+              We work in four steps: a free AI Readiness Snapshot, AI Fundamentals Workshops that qualify for
+              Massachusetts Workforce Training Fund reimbursement, a two-to-four week Workflow Automation Sprint, and
+              an ongoing Fractional AI Ops Retainer. The capabilities below are what those engagements draw on.
             </p>
           </motion.div>
         </Container>
@@ -100,6 +104,42 @@ export default function Services() {
               </motion.div>
             ))}
           </div>
+        </Container>
+      </Section>
+
+      {/* Bridge to the small-business offer. Visitors arriving from the WTFP,
+          industry and city pages land here next; without this they hit
+          enterprise capability copy and no route back to what they searched for. */}
+      <Section className="border-t border-border bg-card/10">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
+          >
+            <h2 className="text-3xl md:text-4xl font-medium tracking-tight mb-6">
+              Running a smaller Massachusetts business?
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+              Most of the above is aimed at larger engagements. If you run a small business, the usual starting point
+              is a free AI Readiness Snapshot, followed by a workshop the state may reimburse or a fixed-scope
+              automation sprint.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { href: "/workforce-training-fund-ai-training", label: "Reimbursed AI training (WTFP)" },
+                { href: "/industries", label: "By industry" },
+                { href: "/ai-consulting", label: "By location" },
+                { href: "/vs", label: "Decision guides" },
+              ].map((l) => (
+                <Button key={l.href} asChild variant="outline" className="h-12 px-6 rounded-xl border-border">
+                  <Link href={l.href}>{l.label}</Link>
+                </Button>
+              ))}
+            </div>
+          </motion.div>
         </Container>
       </Section>
     </div>
