@@ -16,7 +16,7 @@ These are live and now indexed. They are business calls, not engineering ones.
 |---|---|---|---|
 | 1 | Four statistics under **"Research-Backed Impact Metrics"** — 92% unprepared, 68% productivity gain, 62% skills-gap reduction, 2 days to value | homepage | Presented as "research-backed" with no source named. Either cite the study for each figure, or drop the "research-backed" framing. Unsourced statistics attributed to research are the single easiest thing for a prospect or regulator to challenge. |
 | 2 | **"If we can't find a 20%+ efficiency gain, we won't take you on as a client"** | homepage hero | This reads as a guarantee. Confirm you will honour it exactly as written, or soften to a qualified claim. |
-| 3 | `/insights` — six placeholder articles including a "Case Study" claiming **99.8% precision** on 10,000+ pages of regulatory text | `/insights` | Currently set to `noindex` in code, so search engines and AI crawlers will not index it. The invented client result is still visible to human visitors. Either replace with real posts or remove the cards. |
+| 3 | ~~`/insights` placeholder articles incl. a fabricated "99.8% precision" case study~~ — **resolved** | `/insights` | Replaced with four real guides; the `noindex` has been lifted and the section is indexed again. Nothing needed from you. |
 | 4 | **Direct contact address** | `/contact` | The old address was `partners@aibusinesslab.example.com`. `.example.com` is a reserved domain that cannot receive mail — every inquiry sent there bounced silently. The page now points at the booking calendar and form. Supply a real inbox and it goes back. |
 | 5 | Existing pages (`/`, `/services`, `/training`, `/system`, `/about`) still describe **enterprise AI consulting**, not the Massachusetts small-business / WTFP positioning | sitewide | Left untouched per your earlier instruction. Until reconciled, a visitor arriving on the WTFP page and clicking "Services" meets a different business. |
 
@@ -38,7 +38,7 @@ sitemap is submitted.
    - Bing matters more than its search share suggests: it feeds part of
      ChatGPT's search retrieval.
 
-**Full sitemap URL:** `https://aibizlab.org/sitemap.xml` (19 indexable URLs)
+**Full sitemap URL:** `https://aibizlab.org/sitemap.xml` (24 indexable URLs)
 **Robots:** `https://aibizlab.org/robots.txt`
 **llms.txt:** `https://aibizlab.org/llms.txt`
 
