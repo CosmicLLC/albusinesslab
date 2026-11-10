@@ -110,24 +110,32 @@ export default function Home() {
               <div className="flex items-center gap-6">
                 <img
                   src="/openai.svg"
+                  width={32}
+                  height={32}
                   alt="OpenAI"
                   className="h-8 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
                   title="OpenAI"
                 />
                 <img
                   src="/anthropic.svg"
+                  width={32}
+                  height={32}
                   alt="Anthropic"
                   className="h-8 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
                   title="Anthropic"
                 />
                 <img
                   src="/zapier.svg"
+                  width={32}
+                  height={32}
                   alt="Zapier"
                   className="h-8 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
                   title="Zapier"
                 />
                 <img
                   src="/make.svg"
+                  width={32}
+                  height={32}
                   alt="Make"
                   className="h-8 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
                   title="Make"
@@ -144,7 +152,10 @@ export default function Home() {
         <Container>
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10">
             <img
-              src="/james.png"
+              src="/james-288.webp"
+              width={144}
+              height={144}
+              loading="lazy"
               alt="James Greulich, founder of AI Business Lab"
               className="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover flex-shrink-0 border border-border shadow-md"
             />

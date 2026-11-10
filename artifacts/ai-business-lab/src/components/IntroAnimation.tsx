@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const TOTAL_DURATION_MS = 3200;
 const FADE_MS = 600;
@@ -211,13 +211,11 @@ const INTRO_CSS = `
  * prefers-reduced-motion enabled.
  */
 export function IntroGate({ children }: { children: React.ReactNode }) {
-  const [showIntro, setShowIntro] = useState<boolean | null>(null);
+  // Children always render (so prerendered HTML contains the page content
+  // for crawlers); the intro overlay is decided before first paint.
+  const [showIntro, setShowIntro] = useState(false);
 
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      setShowIntro(false);
-      return;
-    }
+  useLayoutEffect(() => {
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -225,8 +223,6 @@ export function IntroGate({ children }: { children: React.ReactNode }) {
   }, []);
 
   const handleDone = useCallback(() => setShowIntro(false), []);
-
-  if (showIntro === null) return null;
 
   return (
     <>

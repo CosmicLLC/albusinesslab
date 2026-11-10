@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
-              <img src="/logo.png" alt="AI Business Lab" className="h-8 w-8 object-contain" />
+              <img src="/logo-80.webp" alt="" width={32} height={32} loading="lazy" className="h-8 w-8 object-contain" />
               <span className="font-bold text-lg tracking-tight text-foreground">AI Business Lab</span>
             </Link>
             <p className="text-muted-foreground max-w-sm">
@@ -16,7 +16,7 @@ export function Footer() {
             </p>
           </div>
           <div>
-            <h4 className="font-medium mb-4 text-sm text-foreground">Services</h4>
+            <h3 className="font-medium mb-4 text-sm text-foreground">Services</h3>
             <ul className="space-y-3">
               <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors text-sm">AI Strategy</Link></li>
               <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors text-sm">Implementation</Link></li>
@@ -25,7 +25,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-medium mb-4 text-sm text-foreground">Company</h4>
+            <h3 className="font-medium mb-4 text-sm text-foreground">Company</h3>
             <ul className="space-y-3">
               <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors text-sm">About Us</Link></li>
               <li><Link href="/insights" className="text-muted-foreground hover:text-primary transition-colors text-sm">AI School</Link></li>

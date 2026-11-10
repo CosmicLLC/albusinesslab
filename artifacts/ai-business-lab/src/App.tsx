@@ -13,10 +13,12 @@ import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import WebsiteBuilder from "@/pages/website-builder";
 import NotFound from "@/pages/not-found";
+import { useRouteSeo } from "@/seo/useRouteSeo";
 
 const queryClient = new QueryClient();
 
-function Router() {
+export function AppRoutes() {
+  useRouteSeo();
   return (
     <Layout>
       <Switch>
@@ -40,7 +42,7 @@ function App() {
       <TooltipProvider>
         <IntroGate>
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-            <Router />
+            <AppRoutes />
           </WouterRouter>
           <Toaster />
         </IntroGate>

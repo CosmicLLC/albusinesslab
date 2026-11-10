@@ -16,6 +16,7 @@ AI Business Lab — a production-ready enterprise AI consulting platform website
 - **Components**: Navbar (with mobile menu + active links), Footer, Layout wrapper, Container, Section
 - **Features**: Framer Motion animations, react-hook-form + zod validated contact form, wouter routing
 - **Font**: Inter (Google Fonts)
+- **SEO / prerendering**: `pnpm --filter @workspace/ai-business-lab build` builds the client, then an SSR bundle of `src/entry-server.tsx`, then runs `scripts/prerender.mjs`, which writes static HTML per route plus `404.html`, `sitemap.xml` and `robots.txt` into `dist/`. Route titles, descriptions, indexability and JSON-LD live in `src/seo/routes.ts`. **When adding a page, add its `<Route>` in `App.tsx` and an entry in `ROUTES`**, or it will be missing from the sitemap and prerender. Sitemap `<lastmod>` comes from git history and is omitted on shallow clones (set `VERCEL_DEEP_CLONE=true` on Vercel to keep it).
 
 ## Stack
 
