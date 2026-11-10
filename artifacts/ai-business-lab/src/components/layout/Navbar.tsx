@@ -35,7 +35,7 @@ export function Navbar() {
       <Container>
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2.5">
-            <img src="/logo.png" alt="AI Business Lab" className="h-10 w-10 object-contain" />
+            <img src="/logo-80.webp" alt="" width={40} height={40} className="h-10 w-10 object-contain" />
             <span className="font-bold text-lg tracking-tight text-foreground">AI Business Lab</span>
           </Link>
 
@@ -60,6 +60,7 @@ export function Navbar() {
           <button
             className="md:hidden text-foreground p-2 -mr-2"
             onClick={() => setIsMobileMenuOpen(true)}
+            aria-label="Open menu"
           >
             <Menu className="h-6 w-6" />
           </button>
@@ -77,6 +78,7 @@ export function Navbar() {
             <button
               className="absolute top-6 right-6 text-foreground p-2"
               onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close menu"
             >
               <X className="h-6 w-6" />
             </button>
